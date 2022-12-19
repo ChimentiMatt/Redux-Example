@@ -1,3 +1,5 @@
+// Not used in this example, but shows more can be built
+
 const loggedReducer = (state = false, action) => {
     switch(action.type){
       case "SING_IN":

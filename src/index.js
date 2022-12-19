@@ -1,29 +1,22 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
 import './index.css';
+import ReactDOM from 'react-dom/client';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
 import allReducer from './reducers' // automatically looks for an index.js
-
 import { Provider } from 'react-redux'
+import { configureStore } from '@reduxjs/toolkit'
 
-
-const store = createStore(
-  allReducer, 
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-)
+// A store is an immutable object tree in Redux. A store is a state container which holds the application's state.
+export const store = configureStore({
+  reducer: allReducer,
+})
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
+    // The <Provider> component makes the Redux store available to any nested components that need to access the Redux store.
     <Provider store={store}> 
       <App />
     </Provider>
 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
