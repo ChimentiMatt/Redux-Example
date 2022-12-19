@@ -11,7 +11,7 @@ function App() {
       <h1>Redux example</h1>
 
       <div id='base-level'>
-        <h1>Counter at Base level of App.js </h1>
+        <h1>Base level of App.js utilizing state</h1>
         <h1>{counter}</h1>
         <button onClick={() => dispatch(increment())}>+</button>
         <button onClick={() => dispatch(decrement())}>-</button>
